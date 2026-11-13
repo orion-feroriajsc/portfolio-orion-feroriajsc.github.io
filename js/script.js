@@ -214,7 +214,6 @@ if (window.gsap && window.ScrollTrigger && !reduceMotion) {
   });
 }
 
-
 // Latest Projects carousel
 const portfolioContainer = document.querySelector(".portfolio-container");
 if (portfolioContainer) {
@@ -225,9 +224,17 @@ if (portfolioContainer) {
   const next = portfolioContainer.querySelector(".arrow-right");
   let activeProject = 0;
 
-  if (details.length && details.length === images.length && slide && previous && next) {
+  if (
+    details.length &&
+    details.length === images.length &&
+    slide &&
+    previous &&
+    next
+  ) {
     const updateProject = () => {
-      details.forEach((detail, index) => detail.classList.toggle("p-active", index === activeProject));
+      details.forEach((detail, index) =>
+        detail.classList.toggle("p-active", index === activeProject),
+      );
       slide.style.transform = `translateX(-${activeProject * 100}%)`;
       previous.disabled = activeProject === 0;
       next.disabled = activeProject === details.length - 1;
